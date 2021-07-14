@@ -1,0 +1,81 @@
+{
+  "name": "gameanalytics",
+  "display_name": "GameAnalytics",
+  "description": "Official Godot SDK for GameAnalytics. GameAnalytics is a free analytics platform that helps game developers understand their players' behaviour by delivering relevant insights.",
+  "version": "1.3.0",
+  "godot_version": "3.3.2",
+  "license": "MIT",
+  "category": "analytics",
+  "url": "https://github.com/GameAnalytics/godot-gameanalytics.git",
+  "author": {
+    "name": "the1schwartz",
+    "url": "https://github.com/the1schwartz"
+  },
+  "files": {
+    "scripts": "scripts"
+  },
+  "autoload": {
+    "gameanalytics": "*res://scripts/gameanalytics.gd"
+  },
+  "variables": {
+    "GameAnalytics/AndroidGAME_KEY": {
+      "info": "Game key for Android"
+    },
+    "GameAnalytics/AndroidSECRET_KEY": {
+      "info": "Secret key for Android"
+    },
+    "GameAnalytics/iOSGAME_KEY": {
+      "info": "Game key for iOS"
+    },
+    "GameAnalytics/iOSSECRET_KEY": {
+      "info": "Secret key for iOS"
+    },
+    "GameAnalytics/OSXGAME_KEY": {
+      "info": "Game key for OSX"
+    },
+    "GameAnalytics/OSXSECRET_KEY": {
+      "info": "Secret key for OSX"
+    },
+    "GameAnalytics/CustomDimensions01": {
+      "info": "Available custom dimensions 01",
+      "default": "ninja,samurai"
+    },
+    "GameAnalytics/CustomDimensions02": {
+      "info": "Available custom dimensions 02",
+      "default": "whale,dolphin"
+    },
+    "GameAnalytics/CustomDimensions03": {
+      "info": "Available custom dimensions 03",
+      "default": "horde,alliance"
+    },
+    "GameAnalytics/ResourceCurrencies": {
+      "info": "Available resource currencies",
+      "default": "gold,gems"
+    },
+    "GameAnalytics/ResourceItemTypes": {
+      "info": "Available resource item types",
+      "default": "boost,lives"
+    }
+  },
+  "platform_ios": {
+    "files": {
+      "ios/gameanalytics.gdip": "ios/plugins/gameanalytics/",
+      "ios/lib/gameanalytics.debug.a": "ios/plugins/gameanalytics/",
+      "ios/lib/gameanalytics.release.a": "ios/plugins/gameanalytics/",
+      "ios/lib/GameAnalytics.framework/": "ios/plugins/gameanalytics/GameAnalytics.framework"
+    }
+  },
+  "platform_android": {
+    "files": {
+      "android/GameAnalytics.gdap": "android/plugins/",
+      "android/lib/GameAnalytics.release.aar": "android/plugins/"
+    }
+  },
+  "platform_osx": {
+    "files": {
+      "osx/lib/libgameanalytics_universal.dylib": "addons/gameanalytics-osx/",
+      "plugins-osx/gameanalytics/gamecenter.gdnlib": "addons/gameanalytics-osx/",
+      "plugins-osx/gameanalytics/gamecenter.gdns": "addons/gameanalytics-osx/"
+    }
+  }
+}

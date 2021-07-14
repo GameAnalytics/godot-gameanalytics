@@ -1,0 +1,16 @@
+[general]
+
+singleton=true
+load_once=true
+symbol_prefix="gameanalytics_"
+reloadable=false
+
+[entry]
+
+OSX.64="res://addons/gameanalytics-osx/libgameanalytics_universal.dylib"
+OSX.arm64="res://addons/gameanalytics-osx/libgameanalytics_universal.dylib"
+
+[dependencies]
+
+OSX.64=[]
+OSX.arm64=[]

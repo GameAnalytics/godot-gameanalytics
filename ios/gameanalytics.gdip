@@ -1,0 +1,16 @@
+[config]
+name="GameAnalytics"
+binary="gameanalytics.a"
+
+initialization="register_gameanalytics_types"
+deinitialization="unregister_gameanalytics_types"
+
+[dependencies]
+linked=["GameAnalytics.framework"]
+embedded=[]
+system=["Foundation.framework"]
+capabilities=[]
+files=[]
+
+[plist]
+
