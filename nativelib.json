@@ -6,7 +6,15 @@
   "godot_version": "3.3.2",
   "license": "MIT",
   "category": "analytics",
+  "tags": [
+    "analytics",
+    "ios",
+    "android",
+    "osx"
+  ],
   "url": "https://github.com/GameAnalytics/godot-gameanalytics.git",
+  "readme_url": "https://github.com/GameAnalytics/godot-gameanalytics/README.md",
+  "icon_url": "https://github.com/GameAnalytics/godot-gameanalytics/icon/ga_icon.png",
   "author": {
     "name": "the1schwartz",
     "url": "https://github.com/the1schwartz"
@@ -74,8 +82,8 @@
   "platform_osx": {
     "files": {
       "osx/lib/libgameanalytics_universal.dylib": "addons/gameanalytics-osx/",
-      "plugins-osx/gameanalytics/gamecenter.gdnlib": "addons/gameanalytics-osx/",
-      "plugins-osx/gameanalytics/gamecenter.gdns": "addons/gameanalytics-osx/"
+      "osx/gameanalytics/gameanalytics.gdnlib": "addons/gameanalytics-osx/",
+      "osx/gameanalytics/gameanalytics.gdns": "addons/gameanalytics-osx/"
     }
   }
 }
