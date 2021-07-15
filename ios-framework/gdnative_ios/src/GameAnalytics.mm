@@ -2,7 +2,7 @@
 #include "GameAnalytics.hpp"
 #include "GameAnalyticsCpp.h"
 #include <Engine.hpp>
-#define VERSION "godot 1.3.0"
+#define VERSION "godot 1.3.1"
 
 GameAnalytics *GameAnalytics::instance = NULL;
 
