@@ -7,10 +7,10 @@ class GameAnalytics : public Object
     GDCLASS(GameAnalytics, Object);
 
 protected:
+    static void _bind_methods();
     static GameAnalytics *instance;
 
 public:
-    static void _register_methods();
     void _init();
 
     static GameAnalytics *get_singleton();

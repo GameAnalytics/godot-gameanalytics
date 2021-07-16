@@ -2,7 +2,7 @@
 #include "GameAnalytics.h"
 #include "GameAnalyticsCpp.h"
 #include "core/engine.h"
-#define VERSION "godot 1.3.3"
+#define VERSION "godot 1.3.4"
 
 GameAnalytics *GameAnalytics::instance = NULL;
 
@@ -510,7 +510,7 @@ String GameAnalytics::getRemoteConfigsContentAsString()
     return GameAnalyticsCpp::getRemoteConfigsContentAsString();
 }
 
-void GameAnalytics::_register_methods()
+void GameAnalytics::_bind_methods()
 {
     ClassDB::bind_method(D_METHOD("configureAvailableCustomDimensions01", "customDimensions"), &GameAnalytics::configureAvailableCustomDimensions01);
     ClassDB::bind_method(D_METHOD("configureAvailableCustomDimensions02", "customDimensions"), &GameAnalytics::configureAvailableCustomDimensions02);
