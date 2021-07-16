@@ -27,6 +27,9 @@ This plugin contain gd-wrapper `gameanalytics` which will be automatically added
 Changelog
 ---------
 <!--(CHANGELOG_TOP)-->
+**1.3.3**
+* fixed ios nativelib errors
+
 **1.3.1**
 * small fixes
 

@@ -1,13 +1,10 @@
 #pragma once
 
-#include <Godot.hpp>
-#include <Reference.hpp>
+#include "core/object.h"
 
-using namespace godot;
-
-class GameAnalytics : public godot::Reference
+class GameAnalytics : public Object
 {
-    GODOT_CLASS(GameAnalytics, godot::Reference);
+    GDCLASS(GameAnalytics, Object);
 
 protected:
     static GameAnalytics *instance;

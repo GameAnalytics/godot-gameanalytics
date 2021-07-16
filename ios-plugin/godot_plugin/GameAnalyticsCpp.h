@@ -1,10 +1,7 @@
 #pragma once
 
-#include <Array.hpp>
-#include <PoolArrays.hpp>
-#include <Variant.hpp>
-
-using namespace godot;
+#include "core/array.h"
+#include "core/variant.h"
 
 class GameAnalyticsCpp {
 public:

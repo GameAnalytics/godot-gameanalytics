@@ -1,8 +1,8 @@
 #import <Foundation/Foundation.h>
-#include "GameAnalytics.hpp"
+#include "GameAnalytics.h"
 #include "GameAnalyticsCpp.h"
-#include <Engine.hpp>
-#define VERSION "godot 1.3.1"
+#include "core/engine.h"
+#define VERSION "godot 1.3.3"
 
 GameAnalytics *GameAnalytics::instance = NULL;
 
@@ -512,42 +512,42 @@ String GameAnalytics::getRemoteConfigsContentAsString()
 
 void GameAnalytics::_register_methods()
 {
-    register_method("configureAvailableCustomDimensions01", &GameAnalytics::configureAvailableCustomDimensions01);
-    register_method("configureAvailableCustomDimensions02", &GameAnalytics::configureAvailableCustomDimensions02);
-    register_method("configureAvailableCustomDimensions03", &GameAnalytics::configureAvailableCustomDimensions03);
+    ClassDB::bind_method(D_METHOD("configureAvailableCustomDimensions01", "customDimensions"), &GameAnalytics::configureAvailableCustomDimensions01);
+    ClassDB::bind_method(D_METHOD("configureAvailableCustomDimensions02", "customDimensions"), &GameAnalytics::configureAvailableCustomDimensions02);
+    ClassDB::bind_method(D_METHOD("configureAvailableCustomDimensions03", "customDimensions"), &GameAnalytics::configureAvailableCustomDimensions03);
 
-    register_method("configureAvailableResourceCurrencies", &GameAnalytics::configureAvailableResourceCurrencies);
-    register_method("configureAvailableResourceItemTypes", &GameAnalytics::configureAvailableResourceItemTypes);
+    ClassDB::bind_method(D_METHOD("configureAvailableResourceCurrencies", "resourceCurrencies"), &GameAnalytics::configureAvailableResourceCurrencies);
+    ClassDB::bind_method(D_METHOD("configureAvailableResourceItemTypes", "resourceItemTypes"), &GameAnalytics::configureAvailableResourceItemTypes);
 
-    register_method("configureBuild", &GameAnalytics::configureBuild);
-    register_method("configureAutoDetectAppVersion", &GameAnalytics::configureAutoDetectAppVersion);
-    register_method("configureUserId", &GameAnalytics::configureUserId);
+    ClassDB::bind_method(D_METHOD("configureBuild", "build"), &GameAnalytics::configureBuild);
+    ClassDB::bind_method(D_METHOD("configureAutoDetectAppVersion", "flag"), &GameAnalytics::configureAutoDetectAppVersion);
+    ClassDB::bind_method(D_METHOD("configureUserId", "userId"), &GameAnalytics::configureUserId);
 
-    register_method("init", &GameAnalytics::init);
+    ClassDB::bind_method(D_METHOD("init", "gameKey", "secretKey"), &GameAnalytics::init);
 
-    register_method("addBusinessEvent", &GameAnalytics::addBusinessEvent);
-    register_method("addResourceEvent", &GameAnalytics::addResourceEvent);
-    register_method("addProgressionEvent", &GameAnalytics::addProgressionEvent);
-    register_method("addDesignEvent", &GameAnalytics::addDesignEvent);
-    register_method("addErrorEvent", &GameAnalytics::addErrorEvent);
+    ClassDB::bind_method(D_METHOD("addBusinessEvent", "options"), &GameAnalytics::addBusinessEvent);
+    ClassDB::bind_method(D_METHOD("addResourceEvent", "options"), &GameAnalytics::addResourceEvent);
+    ClassDB::bind_method(D_METHOD("addProgressionEvent", "options"), &GameAnalytics::addProgressionEvent);
+    ClassDB::bind_method(D_METHOD("addDesignEvent", "options"), &GameAnalytics::addDesignEvent);
+    ClassDB::bind_method(D_METHOD("addErrorEvent", "options"), &GameAnalytics::addErrorEvent);
 
-    register_method("setEnabledInfoLog", &GameAnalytics::setEnabledInfoLog);
-    register_method("setEnabledVerboseLog", &GameAnalytics::setEnabledVerboseLog);
-    register_method("setEnabledManualSessionHandling", &GameAnalytics::setEnabledManualSessionHandling);
-    register_method("setEnabledErrorReporting", &GameAnalytics::setEnabledErrorReporting);
-    register_method("setEnabledEventSubmission", &GameAnalytics::setEnabledEventSubmission);
+    ClassDB::bind_method(D_METHOD("setEnabledInfoLog", "flag"), &GameAnalytics::setEnabledInfoLog);
+    ClassDB::bind_method(D_METHOD("setEnabledVerboseLog", "flag"), &GameAnalytics::setEnabledVerboseLog);
+    ClassDB::bind_method(D_METHOD("setEnabledManualSessionHandling", "flag"), &GameAnalytics::setEnabledManualSessionHandling);
+    ClassDB::bind_method(D_METHOD("setEnabledErrorReporting", "flag"), &GameAnalytics::setEnabledErrorReporting);
+    ClassDB::bind_method(D_METHOD("setEnabledEventSubmission", "flag"), &GameAnalytics::setEnabledEventSubmission);
 
-    register_method("setCustomDimension01", &GameAnalytics::setCustomDimension01);
-    register_method("setCustomDimension02", &GameAnalytics::setCustomDimension02);
-    register_method("setCustomDimension03", &GameAnalytics::setCustomDimension03);
+    ClassDB::bind_method(D_METHOD("setCustomDimension01", "dimension"), &GameAnalytics::setCustomDimension01);
+    ClassDB::bind_method(D_METHOD("setCustomDimension02", "dimension"), &GameAnalytics::setCustomDimension02);
+    ClassDB::bind_method(D_METHOD("setCustomDimension03", "dimension"), &GameAnalytics::setCustomDimension03);
 
-    register_method("startSession", &GameAnalytics::startSession);
-    register_method("endSession", &GameAnalytics::endSession);
-    register_method("onQuit", &GameAnalytics::onQuit);
+    ClassDB::bind_method(D_METHOD("startSession"), &GameAnalytics::startSession);
+    ClassDB::bind_method(D_METHOD("endSession"), &GameAnalytics::endSession);
+    ClassDB::bind_method(D_METHOD("onQuit"), &GameAnalytics::onQuit);
 
-    register_method("getRemoteConfigsValueAsString", &GameAnalytics::getRemoteConfigsValueAsString);
-    register_method("isRemoteConfigsReady", &GameAnalytics::isRemoteConfigsReady);
-    register_method("getRemoteConfigsContentAsString", &GameAnalytics::getRemoteConfigsContentAsString);
+    ClassDB::bind_method(D_METHOD("getRemoteConfigsValueAsString", "options"), &GameAnalytics::getRemoteConfigsValueAsString);
+    ClassDB::bind_method(D_METHOD("isRemoteConfigsReady"), &GameAnalytics::isRemoteConfigsReady);
+    ClassDB::bind_method(D_METHOD("getRemoteConfigsContentAsString"), &GameAnalytics::getRemoteConfigsContentAsString);
 }
 
 

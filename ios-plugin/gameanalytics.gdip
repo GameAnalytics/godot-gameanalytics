@@ -1,7 +1,7 @@
+
 [config]
 name="GameAnalytics"
-binary="gameanalytics.a"
-
+binary="gameanalytics.xcframework"
 initialization="register_gameanalytics_types"
 deinitialization="unregister_gameanalytics_types"
 
@@ -11,6 +11,4 @@ embedded=[]
 system=["Foundation.framework"]
 capabilities=[]
 files=[]
-
 [plist]
-
