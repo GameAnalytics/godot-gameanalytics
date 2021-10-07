@@ -2,7 +2,7 @@
 #include "GameAnalytics.h"
 #include "GameAnalyticsCpp.h"
 #include "core/engine.h"
-#define VERSION "godot 2.0.0"
+#define VERSION "godot 2.1.0"
 
 GameAnalytics *GameAnalytics::instance = NULL;
 
@@ -102,6 +102,7 @@ void GameAnalytics::addBusinessEvent(const Dictionary &options)
     String cartType = "";
     String receipt = "";
     bool autoFetchReceipt = false;
+    String fields = "{}";
 
     Array keys = options.keys();
     for (int i = 0; i < keys.size(); ++i)
@@ -164,14 +165,22 @@ void GameAnalytics::addBusinessEvent(const Dictionary &options)
                 autoFetchReceipt = v;
             }
         }
+        else if (key == "customFields")
+        {
+            const Variant *v = options.getptr(key);
+            if (v != NULL && v->get_type() == Variant::Type::STRING)
+            {
+                fields = *v;
+            }
+        }
     }
     if(autoFetchReceipt)
     {
-        GameAnalyticsCpp::addBusinessEventAndAutoFetchReceipt(currency.utf8().get_data(), amount, itemType.utf8().get_data(), itemId.utf8().get_data(), cartType.utf8().get_data());
+        GameAnalyticsCpp::addBusinessEventAndAutoFetchReceipt(currency.utf8().get_data(), amount, itemType.utf8().get_data(), itemId.utf8().get_data(), cartType.utf8().get_data(), fields.utf8().get_data());
     }
     else
     {
-        GameAnalyticsCpp::addBusinessEvent(currency.utf8().get_data(), amount, itemType.utf8().get_data(), itemId.utf8().get_data(), cartType.utf8().get_data(), receipt.utf8().get_data());
+        GameAnalyticsCpp::addBusinessEvent(currency.utf8().get_data(), amount, itemType.utf8().get_data(), itemId.utf8().get_data(), cartType.utf8().get_data(), receipt.utf8().get_data(), fields.utf8().get_data());
     }
 }
 
@@ -182,6 +191,7 @@ void GameAnalytics::addResourceEvent(const Dictionary &options)
     float amount = 0;
     String itemType = "";
     String itemId = "";
+    String fields = "{}";
 
     Array keys = options.keys();
     for (int i = 0; i < keys.size(); ++i)
@@ -236,8 +246,16 @@ void GameAnalytics::addResourceEvent(const Dictionary &options)
                 itemId = v;
             }
         }
+        else if (key == "customFields")
+        {
+            const Variant *v = options.getptr(key);
+            if (v != NULL && v->get_type() == Variant::Type::STRING)
+            {
+                fields = *v;
+            }
+        }
     }
-    GameAnalyticsCpp::addResourceEvent(flowType, currency.utf8().get_data(), amount, itemType.utf8().get_data(), itemId.utf8().get_data());
+    GameAnalyticsCpp::addResourceEvent(flowType, currency.utf8().get_data(), amount, itemType.utf8().get_data(), itemId.utf8().get_data(), fields.utf8().get_data());
 }
 
 void GameAnalytics::addProgressionEvent(const Dictionary &options)
@@ -248,6 +266,7 @@ void GameAnalytics::addProgressionEvent(const Dictionary &options)
     String progression03 = "";
     int score = 0;
     bool sendScore = false;
+    String fields = "{}";
 
     Array keys = options.keys();
     for (int i = 0; i < keys.size(); ++i)
@@ -307,14 +326,22 @@ void GameAnalytics::addProgressionEvent(const Dictionary &options)
                 sendScore = true;
             }
         }
+        else if (key == "customFields")
+        {
+            const Variant *v = options.getptr(key);
+            if (v != NULL && v->get_type() == Variant::Type::STRING)
+            {
+                fields = *v;
+            }
+        }
     }
     if(sendScore)
     {
-        GameAnalyticsCpp::addProgressionEventWithScore(progressionStatus, progression01.utf8().get_data(), progression02.utf8().get_data(), progression03.utf8().get_data(), score);
+        GameAnalyticsCpp::addProgressionEventWithScore(progressionStatus, progression01.utf8().get_data(), progression02.utf8().get_data(), progression03.utf8().get_data(), score, fields.utf8().get_data());
     }
     else
     {
-        GameAnalyticsCpp::addProgressionEvent(progressionStatus, progression01.utf8().get_data(), progression02.utf8().get_data(), progression03.utf8().get_data());
+        GameAnalyticsCpp::addProgressionEvent(progressionStatus, progression01.utf8().get_data(), progression02.utf8().get_data(), progression03.utf8().get_data(), fields.utf8().get_data());
     }
 }
 
@@ -323,6 +350,7 @@ void GameAnalytics::addDesignEvent(const Dictionary &options)
     String eventId = "";
     float value = 0;
     bool sendValue = false;
+    String fields = "{}";
 
     Array keys = options.keys();
     for (int i = 0; i < keys.size(); ++i)
@@ -346,14 +374,22 @@ void GameAnalytics::addDesignEvent(const Dictionary &options)
                 sendValue = true;
             }
         }
+        else if (key == "customFields")
+        {
+            const Variant *v = options.getptr(key);
+            if (v != NULL && v->get_type() == Variant::Type::STRING)
+            {
+                fields = *v;
+            }
+        }
     }
     if(sendValue)
     {
-        GameAnalyticsCpp::addDesignEventWithValue(eventId.utf8().get_data(), value);
+        GameAnalyticsCpp::addDesignEventWithValue(eventId.utf8().get_data(), value, fields.utf8().get_data());
     }
     else
     {
-        GameAnalyticsCpp::addDesignEvent(eventId.utf8().get_data());
+        GameAnalyticsCpp::addDesignEvent(eventId.utf8().get_data(), fields.utf8().get_data());
     }
 }
 
@@ -361,6 +397,7 @@ void GameAnalytics::addErrorEvent(const Dictionary &options)
 {
     int severity = 0;
     String message = "";
+    String fields = "{}";
 
     Array keys = options.keys();
     for (int i = 0; i < keys.size(); ++i)
@@ -403,8 +440,16 @@ void GameAnalytics::addErrorEvent(const Dictionary &options)
                 message = v;
             }
         }
+        else if (key == "customFields")
+        {
+            const Variant *v = options.getptr(key);
+            if (v != NULL && v->get_type() == Variant::Type::STRING)
+            {
+                fields = *v;
+            }
+        }
     }
-    GameAnalyticsCpp::addErrorEvent(severity, message.utf8().get_data());
+    GameAnalyticsCpp::addErrorEvent(severity, message.utf8().get_data(), fields.utf8().get_data());
 }
 
 void GameAnalytics::setEnabledInfoLog(bool flag)
