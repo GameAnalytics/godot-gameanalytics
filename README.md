@@ -27,6 +27,9 @@ This plugin contain gd-wrapper `gameanalytics` which will be automatically added
 Changelog
 ---------
 <!--(CHANGELOG_TOP)-->
+**2.2.1**
+* fixed missing custom event fields for when trying to fix missing session end events
+
 **2.2.0**
 * added global custom event fields function to allow to add custom fields to events sent automatically by the SDK
 
