@@ -27,6 +27,9 @@ This plugin contain gd-wrapper `gameanalytics` which will be automatically added
 Changelog
 ---------
 <!--(CHANGELOG_TOP)-->
+**2.3.0**
+* added ad events for Android and iOS
+
 **2.2.3**
 * removed imei identifiers and other alternative identifiers from user identifier logic (android)
 
