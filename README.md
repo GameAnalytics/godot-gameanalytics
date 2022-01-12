@@ -27,6 +27,9 @@ This plugin contain gd-wrapper `gameanalytics` which will be automatically added
 Changelog
 ---------
 <!--(CHANGELOG_TOP)-->
+**2.3.1**
+* changed tagret sdk to 30 instead of 31 for android
+
 **2.3.0**
 * added ad events for Android and iOS
 
