@@ -27,6 +27,9 @@ This plugin contain gd-wrapper `gameanalytics` which will be automatically added
 Changelog
 ---------
 <!--(CHANGELOG_TOP)-->
+**2.3.3**
+* added event uuid for events sent
+
 **2.3.2**
 * fixed progression tries bug fordesktop platforms
 
