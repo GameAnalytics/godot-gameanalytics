@@ -27,6 +27,9 @@ This plugin contain gd-wrapper `gameanalytics` which will be automatically added
 Changelog
 ---------
 <!--(CHANGELOG_TOP)-->
+**2.3.5**
+* small fix for android dependencies for nativelib
+
 **2.3.4**
 * fixed bug in internal error reporting
 
