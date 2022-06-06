@@ -56,6 +56,10 @@ func addBusinessEvent(params: Dictionary) -> void:
     if _ga != null:
         _ga.addBusinessEvent(params)
 
+func addAdEvent(params: Dictionary) -> void:
+	if _ga != null:
+		_ga.addAdEvent(params)
+
 func addResourceEvent(params: Dictionary) -> void:
     if _ga != null:
         _ga.addResourceEvent(params)
